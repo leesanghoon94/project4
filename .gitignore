@@ -136,3 +136,4 @@ dist
 # terraform
 .terraform
 .tfstate
+.tfstate.lock.hcl

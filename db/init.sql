@@ -1,4 +1,5 @@
 CREATE DATABASE RECORD;
+USE RECORD;
 
 CREATE TABLE competition (
     seq INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -7,13 +8,13 @@ CREATE TABLE competition (
     recruits INT NOT NULL
 );
 
-CREATE TABLE participant {
+CREATE TABLE participant (
     seq INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     competition_seq INT NOT NULL references competition(seq),
     user_id VARCHAR(20) NOT NULL,
     user_name VARCHAR(20) NOT NULL,
     reg_date DATETIME NOT NULL
-};
+);
 
 CREATE TABLE competition_type (
     seq INT NOT NULL AUTO_INCREMENT PRIMARY KEY,

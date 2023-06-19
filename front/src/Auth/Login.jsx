@@ -7,9 +7,7 @@ export default function Login() {
   const [username, setUsername] = useState("")
   const [password, setPassword] = useState("")
   const [error, setError] = useState("")
-
   const { user, signIn } = useContext(AuthContext)
-
   const handleSubmit = async (e) => {
     e.preventDefault()
     setError("")

@@ -1,33 +1,15 @@
-import { useEffect, useState } from "react"
-import { getCurrentUser, signOut } from "./auth"
+import { useContext } from "react";
+import { AuthContext } from "./Auth/AuthContext";
 
-export default function UserProfile() {
-  const [user, setUser] = useState()
-
-  useEffect(() => {
-    const fetchUser = async () => {
-      try {
-        const user = await getCurrentUser()
-        setUser(user)
-      } catch (err) {
-        console.error(err)
-      }
-    }
-
-    fetchUser()
-  }, [])
+function Profile() {
+  const { token } = useContext(AuthContext);
 
   return (
     <div>
-      {userData && (
-        <div>
-          <h2>User Profile</h2>
-          <p>Username: {userData.username}</p>
-          <p>Email: {userData.email}</p>
-        </div>
-      )}
-
-      <button onClick={signOut}>Sign Out</button>
+      <h1>Profile</h1>
+      <p>Your secret token is: {token}</p>
     </div>
-  )
+  );
 }
+
+export default Profile;

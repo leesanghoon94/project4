@@ -1,14 +1,14 @@
 import React from "react";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
-import { AuthProvider } from "./AuthContext";
+import { AuthProvider } from "./Auth/AuthContext";
 import Home from "./Home";
 import Contact from "./Contact";
-import Login from "./Login";
-import SignUp from "./SignUp";
-import ConfirmSignUp from "./ConfirmSignUp";
-import Profile from "./UserProfile";
-import ForgotPassword from "./ForgotPassword";
-import ResetPassword from "./ResetPassword";
+import Login from "./Auth/Login";
+import SignUp from "./Auth/SignUp";
+import ConfirmSignUp from "./Auth/ConfirmSignUp";
+import Profile from "./Auth/UserProfile";
+import ForgotPassword from "./Auth/ForgotPassword";
+import ResetPassword from "./Auth/ResetPassword";
 import RouteGuard from "./RouteGuard";
 
 function App() {
@@ -31,6 +31,9 @@ function App() {
             </li>
             <li>
               <Link to="/profile">Profile</Link>
+            </li>
+            <li>
+              <Link to="/signup">SignUp</Link>
             </li>
           </ul>
         </nav>

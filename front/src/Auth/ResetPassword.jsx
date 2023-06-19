@@ -25,7 +25,6 @@ export default function ResetPassword() {
       <div>
         <h2>Reset password</h2>
         <p>Your password has been reset successfully!</p>
-        <Link to="/reset-password">Reset Password</Link>
       </div>
     )
   }

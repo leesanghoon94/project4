@@ -26,6 +26,7 @@ export default function ForgotPassword() {
         <p>
           Check your email for the confirmation code to reset your password.
         </p>
+        <Link to="/reset-password">Reset Password</Link>
       </div>
     )
   }

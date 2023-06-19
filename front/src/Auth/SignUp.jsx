@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { signUp } from "./auth"
 
-export default function SignUp() {
+export default function Signup() {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -23,7 +23,7 @@ export default function SignUp() {
   if (success) {
     return (
       <div>
-        <h2>SignUp successful!</h2>
+        <h2>Signup successful!</h2>
         <p>Please check your email for the confirmation code.</p>
       </div>
     )
@@ -31,7 +31,7 @@ export default function SignUp() {
 
   return (
     <div>
-      <h2>SignUp</h2>
+      <h2>Signup</h2>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -51,7 +51,7 @@ export default function SignUp() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="submit">SignUp</button>
+        <button type="submit">Signup</button>
       </form>
       {error && <p>{error}</p>}
     </div>

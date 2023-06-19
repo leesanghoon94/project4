@@ -2,13 +2,13 @@ import {
   CognitoUserPool,
   CognitoUser,
   AuthenticationDetails,
-} from "amazon-cognito-identity-js"
-import { cognitoConfig } from "./cognitoConfig"
+} from "amazon-cognito-identity-js";
+import { cognitoConfig } from "./cognitoConfig";
 
 const userPool = new CognitoUserPool({
   UserPoolId: cognitoConfig.UserPoolId,
   ClientId: cognitoConfig.ClientId,
-})
+});
 
 export function signUp(username, email, password) {
   return new Promise((resolve, reject) => {
@@ -19,13 +19,13 @@ export function signUp(username, email, password) {
       null,
       (err, result) => {
         if (err) {
-          reject(err)
-          return
+          reject(err);
+          return;
         }
-        resolve(result.user)
+        resolve(result.user);
       }
-    )
-  })
+    );
+  });
 }
 
 export function confirmSignUp(username, code) {
@@ -33,16 +33,16 @@ export function confirmSignUp(username, code) {
     const cognitoUser = new CognitoUser({
       Username: username,
       Pool: userPool,
-    })
+    });
 
     cognitoUser.confirmRegistration(code, true, (err, result) => {
       if (err) {
-        reject(err)
-        return
+        reject(err);
+        return;
       }
-      resolve(result)
-    })
-  })
+      resolve(result);
+    });
+  });
 }
 
 export function signIn(username, password) {
@@ -50,22 +50,22 @@ export function signIn(username, password) {
     const authenticationDetails = new AuthenticationDetails({
       Username: username,
       Password: password,
-    })
+    });
 
     const cognitoUser = new CognitoUser({
       Username: username,
       Pool: userPool,
-    })
+    });
 
     cognitoUser.authenticateUser(authenticationDetails, {
       onSuccess: (result) => {
-        resolve(result)
+        resolve(result);
       },
       onFailure: (err) => {
-        reject(err)
+        reject(err);
       },
-    })
-  })
+    });
+  });
 }
 
 export function forgotPassword(username) {
@@ -105,55 +105,55 @@ export function confirmPassword(username, confirmationCode, newPassword) {
 }
 
 export function signOut() {
-  const cognitoUser = userPool.getCurrentUser()
+  const cognitoUser = userPool.getCurrentUser();
   if (cognitoUser) {
-    cognitoUser.signOut()
+    cognitoUser.signOut();
   }
 }
 
 export async function getCurrentUser() {
   return new Promise((resolve, reject) => {
-    const cognitoUser = userPool.getCurrentUser()
+    const cognitoUser = userPool.getCurrentUser();
 
     if (!cognitoUser) {
-      reject(new Error("No user found"))
-      return
+      reject(new Error("No user found"));
+      return;
     }
 
     cognitoUser.getSession((err, session) => {
       if (err) {
-        reject(err)
-        return
+        reject(err);
+        return;
       }
       cognitoUser.getUserAttributes((err, attributes) => {
         if (err) {
-          reject(err)
-          return
+          reject(err);
+          return;
         }
         const userData = attributes.reduce((acc, attribute) => {
-          acc[attribute.Name] = attribute.Value
-          return acc
-        }, {})
+          acc[attribute.Name] = attribute.Value;
+          return acc;
+        }, {});
 
-        resolve({ ...userData, username: cognitoUser.username })
-      })
-    })
-  })
+        resolve({ ...userData, username: cognitoUser.username });
+      });
+    });
+  });
 }
 
 export function getSession() {
-  const cognitoUser = userPool.getCurrentUser()
+  const cognitoUser = userPool.getCurrentUser();
   return new Promise((resolve, reject) => {
     if (!cognitoUser) {
-      reject(new Error("No user found"))
-      return
+      reject(new Error("No user found"));
+      return;
     }
     cognitoUser.getSession((err, session) => {
       if (err) {
-        reject(err)
-        return
+        reject(err);
+        return;
       }
-      resolve(session)
-    })
-  })
+      resolve(session);
+    });
+  });
 }

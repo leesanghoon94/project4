@@ -18,7 +18,7 @@ connection.connect((err) => {
 
 module.exports = async function (fastify, opts) {
   fastify.get('/offtherecord', (request, reply) => {
-    connection.query('SELECT * FROM offtherecord', (err, results) => {
+    connection.query('SELECT user_id, title, IF(complete_status, \'true\', \'false\') as complete_status, competition_type_seq, reg_date FROM offtherecord', (err, results) => {
       if (err) {
         console.error('Error executing MySQL query:', err);
         reply.status(500).send('Error executing query');

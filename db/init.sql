@@ -47,3 +47,6 @@ CREATE TABLE payment_point (
     reg_date DATETIME NOT NULL
 );
 
+INSERT INTO competition (title, start_day, recruits) values ('1차 마라톤대회', '2023-6-27', 10);
+
+INSERT INTO competition_type (type_name) values ('10km'), ('Half'), ('Full');

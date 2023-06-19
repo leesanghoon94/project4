@@ -55,6 +55,11 @@ module.exports = async function (fastify, opts) {
       "mysql://root:12345678@terraform-20230619024655981100000001.cxamxtdxagfz.ap-northeast-2.rds.amazonaws.com",
   });
 
+  fastify.register(offtherecord);
+  fastify.register(competition);
+  fastify.register(competition_type);
+  fastify.register(payment_point);
+
   // Do not touch the following lines
 
   // This loads all plugins defined in plugins

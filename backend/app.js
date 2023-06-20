@@ -2,6 +2,12 @@
 
 const path = require("path");
 const AutoLoad = require("@fastify/autoload");
+const jwt = require("fastify-jwt");
+const axios = require("axios");
+const jwkToPem = require("jwk-to-pem");
+
+const region = "ap-northeast-2";
+const userPoolId = "ap-northeast-2_ofcEHq7sV";
 
 // Pass --options via CLI arguments in command to enable these options.
 module.exports.options = {};
@@ -12,17 +18,35 @@ module.exports = async function (fastify, opts) {
     const auth = request.headers.authorization;
     // 1. cogniton 검증 로직 추가
     // 2. 유저아이디, 유저네임 할당
+    const token = request.headers.authorization.split(" ")[1];
 
-    console.log(fastify.cognito.verify(request));
+    // 토큰 검증
+    const decoded = await fastify.jwt.verify(token);
+
+    console.log(decoded);
+
     if (false) {
       reply.code(401).send({ status: "Unauthorized" });
     }
   });
 
-  fastify.register(require("fastify-aws-cognito"), {
-    region: "ap-northeast-2",
-    userPoolId: "ap-northeast-2_ofcEHq7sV",
-    //ClientId: "5srdvlu3c69robc3f922tb0ctv",
+  fastify.register(jwt, {
+    decode: { complete: true },
+    secret: async (token, callback, a, b, c, d) => {
+      try {
+        const url = `https://cognito-idp.${region}.amazonaws.com/${userPoolId}/.well-known/jwks.json`;
+        const response = await axios.get(url);
+        const keys = response.data.keys;
+        const key = keys.find((k) => k.kid === token.kid);
+
+        const pem = jwkToPem(key);
+
+        callback(null, pem);
+      } catch (error) {
+        callback(error);
+      }
+    },
+    algorithms: ["RS256"],
   });
 
   fastify.register(require("@fastify/mysql"), {

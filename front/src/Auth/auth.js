@@ -73,17 +73,17 @@ export function forgotPassword(username) {
     const cognitoUser = new CognitoUser({
       Username: username,
       Pool: userPool,
-    })
+    });
 
     cognitoUser.forgotPassword({
       onSuccess: () => {
-        resolve()
+        resolve();
       },
       onFailure: (err) => {
-        reject(err)
+        reject(err);
       },
-    })
-  })
+    });
+  });
 }
 
 export function confirmPassword(username, confirmationCode, newPassword) {
@@ -91,17 +91,17 @@ export function confirmPassword(username, confirmationCode, newPassword) {
     const cognitoUser = new CognitoUser({
       Username: username,
       Pool: userPool,
-    })
+    });
 
     cognitoUser.confirmPassword(confirmationCode, newPassword, {
       onSuccess: () => {
-        resolve()
+        resolve();
       },
       onFailure: (err) => {
-        reject(err)
+        reject(err);
       },
-    })
-  })
+    });
+  });
 }
 
 export function signOut() {

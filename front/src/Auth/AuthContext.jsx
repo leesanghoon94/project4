@@ -1,18 +1,16 @@
 import { createContext, useState, useEffect } from "react";
 import * as auth from "./auth";
 
-
 const AuthContext = createContext();
-
 
 function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
 
-  const getCurrentUser = async () => {
+  const getCurrentUser = async (token) => {
     try {
       const user = await auth.getCurrentUser();
-      console.log("current user", user);
+
       setUser(user);
     } catch (err) {
       // not logged in
@@ -33,13 +31,12 @@ function AuthProvider({ children }) {
   //   const user = await auth.getUser();
   //   console.log("user", user);
   // };
-  
-  
-  
 
   const signIn = async (username, password) => {
-    debugger;
-    await auth.signIn(username, password);
+    const result = await auth.signIn(username, password);
+
+    localStorage.setItem("idToken", JSON.stringify(result.idToken));
+
     await getCurrentUser();
   };
   const signOut = async () => {

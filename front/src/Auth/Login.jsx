@@ -33,8 +33,8 @@ export default function Login() {
         <ul>
           <li>
             <input
-              type="text"
-              placeholder="Username"
+              type="email"
+              placeholder="Email"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
             />

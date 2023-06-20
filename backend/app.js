@@ -13,9 +13,16 @@ module.exports = async function (fastify, opts) {
     // 1. cogniton 검증 로직 추가
     // 2. 유저아이디, 유저네임 할당
 
+    console.log(fastify.cognito.verify(request));
     if (false) {
       reply.code(401).send({ status: "Unauthorized" });
     }
+  });
+
+  fastify.register(require("fastify-aws-cognito"), {
+    region: "ap-northeast-2",
+    userPoolId: "ap-northeast-2_ofcEHq7sV",
+    //ClientId: "5srdvlu3c69robc3f922tb0ctv",
   });
 
   fastify.register(require("@fastify/mysql"), {

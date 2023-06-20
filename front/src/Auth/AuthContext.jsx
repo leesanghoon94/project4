@@ -41,6 +41,7 @@ function AuthProvider({ children }) {
   };
   const signOut = async () => {
     await auth.signOut();
+    localStorage.clear();
     setUser(null);
   };
 

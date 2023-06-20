@@ -13,7 +13,7 @@ export default function Signup() {
     setError("");
 
     try {
-      await signUp(username, email, password);
+      await signUp(email, username, password);
       setSuccess(true);
     } catch (err) {
       setError(err.message);
@@ -36,18 +36,18 @@ export default function Signup() {
         <ul>
           <li>
             <input
-              type="text"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-            />
-          </li>
-          <li>
-            <input
               type="email"
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
+            />
+          </li>
+          <li>
+            <input
+              type="text"
+              placeholder="UserName"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
             />
           </li>
           <li>

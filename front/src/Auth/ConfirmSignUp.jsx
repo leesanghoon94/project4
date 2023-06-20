@@ -1,23 +1,23 @@
-import { useState } from "react"
-import { confirmSignUp } from "./auth"
+import { useState } from "react";
+import { confirmSignUp } from "./auth";
 
 export default function ConfirmSignUp() {
-  const [username, setUsername] = useState("")
-  const [code, setCode] = useState("")
-  const [error, setError] = useState("")
-  const [success, setSuccess] = useState(false)
+  const [username, setUsername] = useState("");
+  const [code, setCode] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
-    setError("")
+    e.preventDefault();
+    setError("");
 
     try {
-      await confirmSignUp(username, code)
-      setSuccess(true)
+      await confirmSignUp(username, code);
+      setSuccess(true);
     } catch (err) {
-      setError(err.message)
+      setError(err.message);
     }
-  }
+  };
 
   if (success) {
     return (
@@ -25,7 +25,7 @@ export default function ConfirmSignUp() {
         <h2>Confirmation successful!</h2>
         <p>You can now log in with your credentials. Go rock that app!</p>
       </div>
-    )
+    );
   }
 
   return (
@@ -48,5 +48,5 @@ export default function ConfirmSignUp() {
       </form>
       {error && <p>{error}</p>}
     </div>
-  )
+  );
 }

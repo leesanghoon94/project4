@@ -10,12 +10,12 @@ const userPool = new CognitoUserPool({
   ClientId: cognitoConfig.ClientId,
 });
 
-export function signUp(username, email, password) {
+export function signUp(email, username, password) {
   return new Promise((resolve, reject) => {
     userPool.signUp(
-      username,
+      email,
       password,
-      [{ Name: "email", Value: email }],
+      [{ Name: "name", Value: username }],
       null,
       (err, result) => {
         if (err) {

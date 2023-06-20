@@ -2,6 +2,21 @@
 
 module.exports = async function (fastify, opts) {
   /**
+   * @api {get} /competitions Get all competitions
+   * @apiName 대회 목록 조회
+   */
+  fastify.get("/", async (request, reply) => {
+    try {
+      const connection = await fastify.mysql.getConnection();
+
+      const result = await connection.query("SELECT * FROM competition", []);
+      reply.code(200).send(result[0]);
+    } catch (error) {
+      reply.code(500).send(error);
+    }
+  });
+
+  /**
    * @api {post} /competitions Create a competition
    * @apiName 특정대화 참가신청
    */

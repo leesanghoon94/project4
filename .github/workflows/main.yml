@@ -10,7 +10,7 @@ env:
   ECS_SERVICE:
   ECS_CLUSTER:
   ECS_TASK_DEFINITION:
-  IMAGE_TAG: 2.0
+  IMAGE_TAG: 1.0
 
 permissions:
   contents: read

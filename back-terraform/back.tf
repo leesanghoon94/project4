@@ -1,9 +1,9 @@
 # AWS provider 설정
 provider "aws" {
-  region  = "ap-northeast-2" # 여기에 원하는 AWS region을 입력
+  region  = "ap-northeast-2" 
 }
 
-# AWS ECR (Elastic Container Registry) 리포지토리 생성
+
 resource "aws_ecr_repository" "repository" {
   name = "back-ecr"
 }
@@ -39,12 +39,12 @@ resource "aws_ecs_cluster" "cluster" {
 
 # ECS task definition 생성
 resource "aws_ecs_task_definition" "task" {
-  family                   = "record-task" # Task definition 이름
-  network_mode             = "awsvpc" # 네트워크 모드 설정
-  cpu                      = "256" # 할당될 CPU 양
-  memory                   = "512" # 할당될 메모리 양
-  requires_compatibilities = ["FARGATE"] # ECS 운영 형태 설정
-  execution_role_arn       = aws_iam_role.ecs_execution_role.arn # ECS 실행 역할 설정
+  family                   = "record-task"
+  network_mode             = "awsvpc"
+  cpu                      = "256"
+  memory                   = "512"
+  requires_compatibilities = ["FARGATE"]
+  execution_role_arn       = aws_iam_role.ecs_execution_role.arn 
 
   container_definitions = <<-DEFINITIONS
   [

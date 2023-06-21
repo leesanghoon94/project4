@@ -15,18 +15,26 @@ module.exports.options = {};
 module.exports = async function (fastify, opts) {
   // Place here your custom code!
   fastify.addHook("preHandler", async (request, reply) => {
-    const auth = request.headers.authorization;
-    // 1. cogniton 검증 로직 추가
-    // 2. 유저아이디, 유저네임 할당
-    const token = request.headers.authorization.split(" ")[1];
+    try {
+      // 1. cogniton 검증 로직 추가
+      // 2. 유저아이디, 유저네임 할당
+      if (!request.headers.authorization) {
+        reply.code(401).send({ status: "Unauthorized" });
+        return;
+      }
 
-    // 토큰 검증
-    const decoded = await fastify.jwt.verify(token);
+      const token = request.headers.authorization.split(" ")[1];
 
-    console.log(decoded);
+      // 토큰 검증
+      const decoded = await fastify.jwt.verify(token);
 
-    if (false) {
-      reply.code(401).send({ status: "Unauthorized" });
+      if (!decoded) {
+        reply.code(401).send({ status: "Unauthorized" });
+        return;
+      }
+      request.userData = decoded;
+    } catch (error) {
+      reply.code(401).send({ status: "Unauthorized", msg: error });
     }
   });
 

@@ -30,7 +30,7 @@ module.exports = async function (fastify, opts) {
       INSERT INTO participant (competition_seq, user_id, user_name, reg_date)
       VALUES (?, ?, ?, NOW());
     `,
-        [competitionid, "", ""]
+        [competitionid, request.userData.email, request.userData.name]
       );
 
       console.log(result);
@@ -72,7 +72,12 @@ module.exports = async function (fastify, opts) {
 
       const [rows, fields] = await connection.query(
         `
-      SELECT * FROM record as A 
+      SELECT C.type_name, B.user_id, B.user_name, A.complete_status, A.reg_date
+      FROM record as A 
+      INNER JOiN participant as B
+        ON A.participant_seq = B.seq
+      INNER JOIN competition_type as C
+        ON A.competition_type_seq = C.seq
       WHERE competition_seq = ?;
     `,
         [competitionid]

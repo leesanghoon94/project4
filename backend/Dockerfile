@@ -5,9 +5,6 @@ WORKDIR /app
 COPY package.json package-lock.json ./
 RUN npm ci
 
-COPY backend/app.js .
-COPY routes ./routes
-
-RUN npm run build
+COPY backend ./backend
 
 CMD [ "npm", "start" ]

@@ -13,7 +13,7 @@ function Home() {
           <button onClick={signOut}>Logout</button>
         </>
       ) : (
-        <p>Please log in to access more features.</p>
+        <p>로그인해주세요.</p>
       )}
     </div>
   );

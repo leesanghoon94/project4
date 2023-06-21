@@ -1,12 +1,15 @@
 name: Deploy to ECR
 
 on:
-  release:
-    types: [published]
+  push:
+    branches:
+      - main
+    paths:
+      - "backend/**"
 
 env:
   AWS_REGION: ap-northeast-2
-  ECR_REPOSITORY: team1-back
+  ECR_REPOSITORY: back-ecr
   ECS_SERVICE:
   ECS_CLUSTER:
   ECS_TASK_DEFINITION:
@@ -47,6 +50,7 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ env.IMAGE_TAG }}
         run: |
+          ls
           # Build a docker container and
           # push it to ECR so that it can
           # be deployed to ECS.

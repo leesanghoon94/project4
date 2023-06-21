@@ -6,7 +6,7 @@ on:
 
 env:
   AWS_REGION: ap-northeast-2
-  ECR_REPOSITORY: team1-back
+  ECR_REPOSITORY: back-ecr
   ECS_SERVICE:
   ECS_CLUSTER:
   ECS_TASK_DEFINITION:

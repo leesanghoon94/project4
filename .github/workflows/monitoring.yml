@@ -34,18 +34,16 @@ jobs:
 
       - name: Set up Docker Compose for Prometheus
         run: |
-          cd prometheus-grafana
-          docker-compose -f ./prometheus/docker-compose.yml build
-          docker-compose -f ./prometheus/docker-compose.yml push
-
+          cd prometheus-grafana/prometheus
+          docker-compose build
+          docker-compose push
       - name: Set up Docker Compose for Grafana
         run: |
-          cd prometheus-grafana
-          docker-compose -f ./grafana/docker-compose.yml build
-          docker-compose -f ./grafana/docker-compose.yml push
-
+          cd prometheus-grafana/grafana
+          docker-compose build
+          docker-compose push
       - name: Set up Docker Compose for Alertmanager
         run: |
           cd prometheus-grafana
-          docker-compose -f ./alertmanager/docker-compose.yml build
-          docker-compose -f ./alertmanager/docker-compose.yml push
+          docker-compose build
+          docker-compose push

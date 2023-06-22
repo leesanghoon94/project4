@@ -7,7 +7,10 @@ on:
 
 env:
   AWS_REGION: ap-northeast-2
-  ECR_REPOSITORY: monitoring
+  ECR_REPOSITORY: monitoring-ecr
+  ECS_SERVICE:
+  ECS_CLUSTER:
+  ECS_TASK_DEFINITION:
   IMAGE_TAG: 1.0
 
 jobs:
@@ -32,20 +35,20 @@ jobs:
       - name: Build, tag, and push Prometheus image to Amazon ECR
         run: |
           cd prometheus-grafana/prometheus
-          docker build
-          docker tag prometheus 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/${{ env.ECR_REPOSITORY }}/prometheus:${{ env.IMAGE_TAG }}
-          docker push 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/${{ env.ECR_REPOSITORY }}/prometheus:${{ env.IMAGE_TAG }}
+          docker build -t prometheus .
+          docker tag prometheus:latest 123456789012.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}:prometheus-${{ env.IMAGE_TAG }}
+          docker push 123456789012.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}:prometheus-${{ env.IMAGE_TAG }}
 
       - name: Build, tag, and push Grafana image to Amazon ECR
         run: |
           cd prometheus-grafana/grafana
-          docker build
-          docker tag grafana 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/${{ env.ECR_REPOSITORY }}/grafana:${{ env.IMAGE_TAG }}
-          docker push 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/${{ env.ECR_REPOSITORY }}/grafana:${{ env.IMAGE_TAG }}
+          docker build -t grafana .
+          docker tag grafana:latest 123456789012.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}:grafana-${{ env.IMAGE_TAG }}
+          docker push 123456789012.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}:grafana-${{ env.IMAGE_TAG }}
 
       - name: Build, tag, and push Alertmanager image to Amazon ECR
         run: |
           cd prometheus-grafana/alertmanager
-          docker build
-          docker tag alertmanager 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/${{ env.ECR_REPOSITORY }}/alertmanager:${{ env.IMAGE_TAG }}
-          docker push 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/${{ env.ECR_REPOSITORY }}/alertmanager:${{ env.IMAGE_TAG }}
+          docker build -t alertmanager .
+          docker tag alertmanager:latest 123456789012.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}:alertmanager-${{ env.IMAGE_TAG }}
+          docker push 123456789012.dkr.ecr.${{ env.AWS_REGION }}.amazonaws.com/${{ env.ECR_REPOSITORY }}:alertmanager-${{ env.IMAGE_TAG }}

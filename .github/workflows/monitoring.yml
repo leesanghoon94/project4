@@ -31,7 +31,7 @@ jobs:
     - name: Build and push Prometheus and Grafana images to Amazon ECR
       run: |
         cd monitoring
-        docker-compose build
+        docker-compose pull
         docker tag monitoring_prometheus:latest ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:prometheus-${{ env.IMAGE_TAG }}
         docker tag monitoring_grafana:latest ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:grafana-${{ env.IMAGE_TAG }}
         docker push ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:prometheus-${{ env.IMAGE_TAG }}

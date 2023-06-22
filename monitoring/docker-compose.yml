@@ -2,12 +2,12 @@ version: '3'
 services:
   prometheus:
     build:
-      context: .
-      dockerfile: Dockerfile.prometheus
+      context: ./prometheus
+      dockerfile: Dockerfile
     image: ${AWS_REGISTRY_URL}/${ECR_REPOSITORY}:prometheus-${IMAGE_TAG}
-
+  
   grafana:
     build:
-      context: .
-      dockerfile: Dockerfile.grafana
+      context: ./grafana
+      dockerfile: Dockerfile
     image: ${AWS_REGISTRY_URL}/${ECR_REPOSITORY}:grafana-${IMAGE_TAG}

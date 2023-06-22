@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+
 env:
   AWS_REGION: ap-northeast-2
   ECR_REPOSITORY: monitoring-ecr
@@ -14,7 +15,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
     - name: Configure AWS credentials
       uses: aws-actions/configure-aws-credentials@v1
@@ -27,18 +29,20 @@ jobs:
       id: login-ecr
       uses: aws-actions/amazon-ecr-login@v1
 
-    - name: Set up Docker Compose
-      run: |
-        echo "AWS_REGISTRY_URL=${{ steps.login-ecr.outputs.registry }}" >> $GITHUB_ENV
-
-    - name: Build and push Prometheus image to Amazon ECR
+    - name: Set up Docker Compose for Prometheus
       run: |
         cd prometheus-grafana/prometheus
-        docker-compose build
-        docker-compose push
+        docker-compose -f docker-compose.yml build
+        docker-compose -f docker-compose.yml push
 
-    - name: Build and push Grafana image to Amazon ECR
+    - name: Set up Docker Compose for Grafana
       run: |
         cd prometheus-grafana/grafana
-        docker-compose build
-        docker-compose push
+        docker-compose -f docker-compose.yml build
+        docker-compose -f docker-compose.yml push
+
+    - name: Set up Docker Compose for Alertmanager
+      run: |
+        cd prometheus-grafana/alertmanager
+        docker-compose -f docker-compose.yml build
+        docker-compose -f docker-compose.yml push

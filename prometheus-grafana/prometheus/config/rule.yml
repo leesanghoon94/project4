@@ -1,0 +1,11 @@
+groups:
+  - name: back-cpu
+    rules:
+      - alert: CPUUsageHigh
+        expr: 100 * (1 - avg by (instance) (irate(node_cpu_seconds_total{mode="idle"}[5m]))) > 75
+        for: 1m
+        labels:
+          severity: warning
+        annotations:
+          summary: "High CPU Usage on {{ $labels.instance }}"
+          description: "{{ $labels.instance }} has CPU usage above 75%."

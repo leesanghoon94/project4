@@ -1,0 +1,46 @@
+version: '3.7'
+
+services:
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    volumes:
+      - ./prometheus/config:/etc/prometheus
+      - ./prometheus/volume:/prometheus
+    ports:
+      - 9090:9090
+    command:
+      - '--web.enable-lifecycle'
+      - '--config.file=/etc/prometheus/prometheus.yml'
+    restart: always
+    networks:
+      - promnet
+
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    # user: "$GRA_UID:$GRA_GID"
+    ports:
+      - 3001:3000 # 접근 포트 설정 (컨테이너 외부:컨테이너 내부)
+    volumes:
+      - ./grafana/volume:/var/lib/grafana
+    restart: always
+    networks:
+      - promnet
+
+  alertmanager:
+    image: prom/alertmanager
+    container_name: alertmanager
+    volumes:
+      - ./alertmanager/config:/etc/alertmanager
+    ports:
+      - 9093:9093
+    command:
+      - '--config.file=/etc/alertmanager/alertmanager.yml'
+    restart: always
+    networks:
+      - promnet
+
+networks:
+  promnet:
+    driver: bridge

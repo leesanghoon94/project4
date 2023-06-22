@@ -33,19 +33,19 @@ jobs:
         run: |
           cd prometheus-grafana/prometheus
           docker-compose build
-          docker tag <your_image_name> ${{ env.ECR_REPOSITORY }}:<your_image_name>:${{ env.IMAGE_TAG }}
-          docker push ${{ env.ECR_REPOSITORY }}:prometheus:${{ env.IMAGE_TAG }}
+          docker tag prom/prometheus ${{ env.ECR_REPOSITORY }}:prom/prometheus:${{ env.IMAGE_TAG }}
+          docker push ${{ env.ECR_REPOSITORY }}:prom/prometheus:${{ env.IMAGE_TAG }}
 
       - name: Set up Docker Compose for Grafana
         run: |
           cd prometheus-grafana/grafana
           docker-compose build
-          docker tag <your_image_name> ${{ env.ECR_REPOSITORY }}:<your_image_name>:${{ env.IMAGE_TAG }}
-          docker push ${{ env.ECR_REPOSITORY }}:grafana:${{ env.IMAGE_TAG }}
+          docker tag grafana/grafana ${{ env.ECR_REPOSITORY }}:grafana/grafana:${{ env.IMAGE_TAG }}
+          docker push ${{ env.ECR_REPOSITORY }}:grafana/grafana:${{ env.IMAGE_TAG }}
 
       - name: Set up Docker Compose for Alertmanager
         run: |
           cd prometheus-grafana
           docker-compose build
-          docker tag <your_image_name> ${{ env.ECR_REPOSITORY }}:Alertmanager:${{ env.IMAGE_TAG }}
-          docker push ${{ env.ECR_REPOSITORY }}:<your_image_name>:${{ env.IMAGE_TAG }}
+          docker tag prom/alertmanager ${{ env.ECR_REPOSITORY }}:prom/alertmanager:${{ env.IMAGE_TAG }}
+          docker push ${{ env.ECR_REPOSITORY }}:prom/alertmanager:${{ env.IMAGE_TAG }}

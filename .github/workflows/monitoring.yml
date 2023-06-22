@@ -37,9 +37,13 @@ jobs:
         cd prometheus-grafana/prometheus
         docker-compose build
         docker-compose push
+        docker tag prom/prometheus:latest 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
+        docker push 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
 
     - name: Build and push Grafana image to Amazon ECR
       run: |
         cd prometheus-grafana/grafana
         docker-compose build
         docker-compose push
+        docker tag grafana/grafana:latest 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}
+        docker push 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/${{ env.ECR_REPOSITORY }}:${{ env.IMAGE_TAG }}

@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - "prometheus-grafana/**"      
 
 env:
   AWS_REGION: ap-northeast-2
@@ -34,10 +32,14 @@ jobs:
       run: |
         echo "AWS_REGISTRY_URL=${{ steps.login-ecr.outputs.registry }}" >> $GITHUB_ENV
 
-    - name: Build, tag, and push Prometheus and Grafana images to Amazon ECR
+    - name: Build and push Prometheus image to Amazon ECR
       run: |
-        cd prometheus-grafana
-        docker-compose -f ./prometheus/docker-compose.yml build
-        docker-compose -f ./prometheus/docker-compose.yml push
-        docker-compose -f ./grafana/docker-compose.yml build
-        docker-compose -f ./grafana/docker-compose.yml push
+        cd prometheus-grafana/prometheus
+        docker-compose build
+        docker-compose push
+
+    - name: Build and push Grafana image to Amazon ECR
+      run: |
+        cd prometheus-grafana/grafana
+        docker-compose build
+        docker-compose push

@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - "prometheus-grafana/**"      
+
 env:
   AWS_REGION: ap-northeast-2
   ECR_REPOSITORY: monitoring-ecr
@@ -33,6 +36,8 @@ jobs:
 
     - name: Build, tag, and push Prometheus and Grafana images to Amazon ECR
       run: |
-        cd monitoring
-        docker-compose build
-        docker-compose push
+        cd prometheus-grafana
+        docker-compose -f ./prometheus/docker-compose.yml build
+        docker-compose -f ./prometheus/docker-compose.yml push
+        docker-compose -f ./grafana/docker-compose.yml build
+        docker-compose -f ./grafana/docker-compose.yml push

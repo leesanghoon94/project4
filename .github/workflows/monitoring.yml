@@ -33,19 +33,20 @@ jobs:
         run: |
           cd prometheus-grafana/prometheus
           docker-compose build
-          docker tag prom/prometheus ${{ env.ECR_REPOSITORY }}:prom/prometheus:${{ env.IMAGE_TAG }}
-          docker push ${{ env.ECR_REPOSITORY }}:prom/prometheus:${{ env.IMAGE_TAG }}
+          docker tag prom/prometheus 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/monitoring:prometheus:1
+          docker push 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/monitoring:prometheus:1
+
 
       - name: Set up Docker Compose for Grafana
         run: |
           cd prometheus-grafana/grafana
           docker-compose build
-          docker tag grafana/grafana ${{ env.ECR_REPOSITORY }}:grafana/grafana:${{ env.IMAGE_TAG }}
-          docker push ${{ env.ECR_REPOSITORY }}:grafana/grafana:${{ env.IMAGE_TAG }}
+          docker tag grafana/grafana 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/monitoring:grafana:1
+          docker push 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/monitoring:grafana:1
 
       - name: Set up Docker Compose for Alertmanager
         run: |
           cd prometheus-grafana
           docker-compose build
-          docker tag prom/alertmanager ${{ env.ECR_REPOSITORY }}:prom/alertmanager:${{ env.IMAGE_TAG }}
-          docker push ${{ env.ECR_REPOSITORY }}:prom/alertmanager:${{ env.IMAGE_TAG }}
+          docker tag prom/alertmanager 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/monitoring:alertmanager:1
+          docker push 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/monitoring:alertmanager:1

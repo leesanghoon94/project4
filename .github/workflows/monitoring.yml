@@ -32,20 +32,20 @@ jobs:
       - name: Build, tag, and push Prometheus image to Amazon ECR
         run: |
           cd prometheus-grafana/prometheus
-          docker-compose build
+          docker build
           docker tag prometheus 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/${{ env.ECR_REPOSITORY }}/prometheus:${{ env.IMAGE_TAG }}
           docker push 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/${{ env.ECR_REPOSITORY }}/prometheus:${{ env.IMAGE_TAG }}
 
       - name: Build, tag, and push Grafana image to Amazon ECR
         run: |
           cd prometheus-grafana/grafana
-          docker-compose build
+          docker build
           docker tag grafana 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/${{ env.ECR_REPOSITORY }}/grafana:${{ env.IMAGE_TAG }}
           docker push 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/${{ env.ECR_REPOSITORY }}/grafana:${{ env.IMAGE_TAG }}
 
       - name: Build, tag, and push Alertmanager image to Amazon ECR
         run: |
           cd prometheus-grafana/alertmanager
-          docker-compose build
+          docker build
           docker tag alertmanager 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/${{ env.ECR_REPOSITORY }}/alertmanager:${{ env.IMAGE_TAG }}
           docker push 124121153800.dkr.ecr.ap-northeast-2.amazonaws.com/${{ env.ECR_REPOSITORY }}/alertmanager:${{ env.IMAGE_TAG }}

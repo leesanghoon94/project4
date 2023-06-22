@@ -64,7 +64,7 @@ module.exports = async function (fastify, opts) {
   fastify.register(require("@fastify/mysql"), {
     promise: true,
     connectionString:
-      "mysql://root:12345678@terraform-20230619024655981100000001.cxamxtdxagfz.ap-northeast-2.rds.amazonaws.com/RECORD",
+      "mysql://root:12345678@terraform-20230622052736232100000001.cxamxtdxagfz.ap-northeast-2.rds.amazonaws.com/RECORD",
   });
 
   // Do not touch the following lines

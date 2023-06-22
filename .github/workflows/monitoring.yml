@@ -8,9 +8,6 @@ on:
 env:
   AWS_REGION: ap-northeast-2
   ECR_REPOSITORY: monitoring-ecr
-  ECS_SERVICE:
-  ECS_CLUSTER:
-  ECS_TASK_DEFINITION:
   IMAGE_TAG: 1.0
 
 jobs:
@@ -36,14 +33,19 @@ jobs:
         run: |
           cd prometheus-grafana/prometheus
           docker-compose build
-          docker-compose push
+          docker tag <your_image_name> ${{ env.ECR_REPOSITORY }}:<your_image_name>:${{ env.IMAGE_TAG }}
+          docker push ${{ env.ECR_REPOSITORY }}:prometheus:${{ env.IMAGE_TAG }}
+
       - name: Set up Docker Compose for Grafana
         run: |
           cd prometheus-grafana/grafana
           docker-compose build
-          docker-compose push
+          docker tag <your_image_name> ${{ env.ECR_REPOSITORY }}:<your_image_name>:${{ env.IMAGE_TAG }}
+          docker push ${{ env.ECR_REPOSITORY }}:grafana:${{ env.IMAGE_TAG }}
+
       - name: Set up Docker Compose for Alertmanager
         run: |
           cd prometheus-grafana
           docker-compose build
-          docker-compose push
+          docker tag <your_image_name> ${{ env.ECR_REPOSITORY }}:Alertmanager:${{ env.IMAGE_TAG }}
+          docker push ${{ env.ECR_REPOSITORY }}:<your_image_name>:${{ env.IMAGE_TAG }}

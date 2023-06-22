@@ -1,17 +1,13 @@
 version: '3'
 services:
   prometheus:
-    image: prom/prometheus:latest
-    volumes:
-      - ./prometheus:/etc/prometheus
-    command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-    ports:
-      - 9090:9090
+    build:
+      context: .
+      dockerfile: Dockerfile.prometheus
+    image: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:prometheus-${{ env.IMAGE_TAG }}
 
   grafana:
-    image: grafana/grafana:latest
-    volumes:
-      - ./grafana:/var/lib/grafana
-    ports:
-      - 3001:3000
+    build:
+      context: .
+      dockerfile: Dockerfile.grafana
+    image: ${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:grafana-${{ env.IMAGE_TAG }}

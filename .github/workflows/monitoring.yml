@@ -43,6 +43,6 @@ jobs:
 
     - name: Set up Docker Compose for Alertmanager
       run: |
-        cd prometheus-grafana/alertmanager
+        cd ..
         docker-compose build
         docker-compose push

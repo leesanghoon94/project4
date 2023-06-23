@@ -3,7 +3,17 @@ frameworkVersion: '3'
 
 provider:
   name: aws
-  runtime: nodejs18.x
+  runtime: nodejs16.x
+  region: ap-northeast-2
+  iam:
+    role: 
+      statements:
+        - Effect: Allow
+          Action: 
+            - sqs:SendMessage
+            - ec2:RunInstances
+            - rds-db:connect
+          Resource: '*'
 
 constructs:
   jobs:
@@ -11,15 +21,15 @@ constructs:
     worker:
       handler: index.consumer
 
+        
 functions:
   producer:
     handler: index.producer
     events:
-      - httpApi:
-          method: post
-          path: /produce
+      - schedule: rate(1 minute)
     environment:
-      QUEUE_URL: ${construct:jobs.queueUrl}
+      QUEUE_URL: ${constructs.jobs.queueUrl}
+
 
 plugins:
   - serverless-lift

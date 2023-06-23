@@ -1,11 +1,12 @@
 const { SQSClient, SendMessageCommand, DeleteMessageCommand } = require("@aws-sdk/client-sqs");
 const sqs = new SQSClient();
-
 require('dotenv').config();
-
 const mysql = require('mysql2/promise');
 
-const producer = async () => {
+const producer = async (event) => {
+  let message;
+  let statusCode;
+
   try {
     const connection = await mysql.createConnection({
       host: process.env.DB_HOST,
@@ -15,7 +16,7 @@ const producer = async () => {
       port: process.env.DB_PORT,
     });
 
-    const [rows] = await connection.execute('SELECT * FROM competition');
+    const [rows] = await connection.execute('SELECT * FROM competitions');
     console.log(rows);
 
     const messages = JSON.stringify(rows.map((row) => ({
@@ -30,33 +31,34 @@ const producer = async () => {
     try {
       await sqs.send(new SendMessageCommand({
         QueueUrl: process.env.QUEUE_URL,
-        MessageBody: messages,
-        MessageAttributes: {
-          AttributeName: {
-            StringValue: "Attribute Value",
-            DataType: "String",
-          },
-        },
+        MessageBody: messages, // messages 변수에 저장된 JSON 문자열을 전송합니다.
       }));
 
-      console.log("Message(s) accepted!");
+
     } catch (err) {
       console.error(err);
-      throw err;
     }
+    return {
+      statusCode: 200,
+      body: JSON.stringify({
+        message: "Message(s) accepted!",
+      }),
+    };
   } catch (error) {
     console.error(error);
-    throw error;
-  }
-};
-
-producer().catch(console.error);
-
+    return {
+      statusCode: 500,
+      body: JSON.stringify({
+        message: "Failed to send message to SQS",
+        error: error.message,
+      }),
+    };
+  }};
 
 const consumer = async (event) => {
   for (const record of event.Records) {
     try {
-      const competitions = JSON.parse(record.body);
+      const score = JSON.parse(record.body);
       const connection = await mysql.createConnection({
         host: process.env.DB_HOST,
         user: process.env.DB_USER,
@@ -66,8 +68,8 @@ const consumer = async (event) => {
       });
 
       const [result] = await connection.execute(
-        "INSERT INTO competitions (seq, title, start_day, recruits) VALUES (?, ?, ?, ?)",
-        [competitions.seq, competitions.title, competitions.start_day, competitions.recruits]
+        "INSERT INTO scores (seq, title, start_day, recruits) VALUES (?, ?, ?, ?)",
+        [score.seq, score.title, score.start_day, score.recruits]
       );
       console.log(result);
       await connection.end();
@@ -79,11 +81,8 @@ const consumer = async (event) => {
           ReceiptHandle: record.receiptHandle,
         })
       );
-
-      console.log("Message processed and deleted from the queue.");
     } catch (error) {
       console.error(error);
-      throw error;
     }
   }
 };

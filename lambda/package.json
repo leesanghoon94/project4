@@ -5,6 +5,12 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
-    "serverless-lift": "^1.1.2"
+    "serverless-lift": "^1.27.0"
+  },
+  "dependencies": {
+    "@aws-sdk/client-sqs": "^3.357.0",
+    "dotenv": "^16.3.1",
+    "mysql2": "^3.4.0",
+    "sqs": "^2.0.2"
   }
 }

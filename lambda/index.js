@@ -1,90 +1,95 @@
-const { SQSClient, SendMessageCommand, DeleteMessageCommand } = require("@aws-sdk/client-sqs");
+const { SQSClient, SendMessageCommand } = require("@aws-sdk/client-sqs");
 const sqs = new SQSClient();
 
-require('dotenv').config();
-
-const mysql = require('mysql2/promise');
-
-const producer = async () => {
-  try {
-    const connection = await mysql.createConnection({
-      host: process.env.DB_HOST,
-      user: process.env.DB_USER,
-      password: process.env.DB_PASSWORD,
-      database: process.env.DB_DATABASE,
-      port: process.env.DB_PORT,
-    });
-
-    const [rows] = await connection.execute('SELECT * FROM competition');
-    console.log(rows);
-
-    const messages = JSON.stringify(rows.map((row) => ({
-      seq: row.seq,
-      title: row.title,
-      start_day: row.start_day,
-      recruits: row.recruits,
-    })));
-    console.log(messages);
-
-    await connection.end();
-
-    try {
-      await sqs.send(new SendMessageCommand({
-        QueueUrl: process.env.QUEUE_URL,
-        MessageBody: messages,
-        MessageAttributes: {
-          AttributeName: {
-            StringValue: "Attribute Value",
-            DataType: "String",
-          },
-        },
-      }));
-
-      console.log("Message(s) accepted!");
-    } catch (err) {
-      console.error(err);
-      throw err;
-    }
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
+const mysql = require("mysql2/promise");
+const connectionConfig = {
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_DATABASE,
+  prot: process.env.DB_PORT
 };
 
-producer().catch(console.error);
+const producer = async (event) => {
+  let statusCode = 200;
+  let message;
 
+  if (!event.body) {
+    return {
+      statusCode: 400,
+      body: JSON.stringify({
+        message: "No body was found",
+      }),
+    };
+  }
+
+  try {
+    // Connect to MySQL
+    const connection = await mysql.createConnection(connectionConfig);
+
+    // Fetch records from MySQL
+    const [rows] = await connection.execute(
+      "SELECT * FROM record"
+    );
+
+    // Send records as SQS messages
+    for (const row of rows) {
+      await sqs.send(
+        new SendMessageCommand({
+          QueueUrl: process.env.QUEUE_URL,
+          MessageBody: JSON.stringify(row),
+        })
+      );
+    }
+
+    // Close MySQL connection
+    await connection.end();
+
+    message = "Messages sent!";
+  } catch (error) {
+    console.log(error);
+    message = error;
+    statusCode = 500;
+  }
+
+  return {
+    statusCode,
+    body: JSON.stringify({
+      message,
+    }),
+  };
+};
 
 const consumer = async (event) => {
   for (const record of event.Records) {
+    const messageAttributes = record.messageAttributes;
+    console.log("Message Attribute: ", messageAttributes.AttributeName.stringValue);
+    console.log("Message Body: ", record.body);
+
     try {
-      const competitions = JSON.parse(record.body);
-      const connection = await mysql.createConnection({
-        host: process.env.DB_HOST,
-        user: process.env.DB_USER,
-        password: process.env.DB_PASSWORD,
-        database: process.env.DB_DATABASE,
-        port: process.env.DB_PORT,
-      });
+      // Connect to MySQL
+      const connection = await mysql.createConnection(connectionConfig);
 
-      const [result] = await connection.execute(
-        "INSERT INTO competition (seq, title, start_day, recruits) VALUES (?, ?, ?, ?)",
-        [competitions.seq, competitions.title, competitions.start_day, competitions.recruits]
+      // Parse message body as JSON
+      const data = JSON.parse(record.body);
+
+      // Insert data into MySQL
+      await connection.execute(
+        "INSERT INTO point (seq, competition_seq, participant_seq, complete_status, competition_type_seq, reg_date) VALUES (?, ?, ?, ?, ?, ?)",
+        [
+          data.seq,
+          data.competition_seq,
+          data.participant_seq,
+          data.complete_status,
+          data.competition_type_seq,
+          data.reg_date,
+        ]
       );
-      console.log(result);
+
+      // Close MySQL connection
       await connection.end();
-
-      // Delete the message from the queue
-      await sqs.send(
-        new DeleteMessageCommand({
-          QueueUrl: process.env.QUEUE_URL,
-          ReceiptHandle: record.receiptHandle,
-        })
-      );
-
-      console.log("Message processed and deleted from the queue.");
     } catch (error) {
-      console.error(error);
-      throw error;
+      console.log(error);
     }
   }
 };

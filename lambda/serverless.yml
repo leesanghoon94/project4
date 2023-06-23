@@ -27,8 +27,16 @@ functions:
     handler: index.producer
     events:
       - schedule: rate(1 minute)
+    vpc:
+      securityGroupIds:
+        - sg-0dbdd2082538975ba
+      subnetIds:
+        - subnet-093bc1cebb91c00f9
+        - subnet-001d2da3df3529a3f
+        
     environment:
       QUEUE_URL: ${constructs.jobs.queueUrl}
+      
 
 
 plugins:

@@ -24,6 +24,7 @@ const producer = async () => {
       start_day: row.start_day,
       recruits: row.recruits,
     })));
+    console.log(messages);
 
     await connection.end();
 
@@ -66,7 +67,7 @@ const consumer = async (event) => {
       });
 
       const [result] = await connection.execute(
-        "INSERT INTO competitions (seq, title, start_day, recruits) VALUES (?, ?, ?, ?)",
+        "INSERT INTO competition (seq, title, start_day, recruits) VALUES (?, ?, ?, ?)",
         [competitions.seq, competitions.title, competitions.start_day, competitions.recruits]
       );
       console.log(result);

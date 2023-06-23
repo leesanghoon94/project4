@@ -1,51 +1,49 @@
 const { SQSClient, SendMessageCommand } = require("@aws-sdk/client-sqs");
 const sqs = new SQSClient();
-
 const mysql = require("mysql2/promise");
-const connectionConfig = {
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
-  prot: process.env.DB_PORT
-};
+const dotenv = require("dotenv");
+dotenv.config();
 
 const producer = async (event) => {
-  let statusCode = 200;
-  let message;
-
-  if (!event.body) {
-    return {
-      statusCode: 400,
-      body: JSON.stringify({
-        message: "No body was found",
-      }),
-    };
-  }
 
   try {
-    // Connect to MySQL
-    const connection = await mysql.createConnection(connectionConfig);
+    const connection = await mysql.createConnection({
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE,
+      port: process.env.DB_PORT,
+    });
+  
 
     // Fetch records from MySQL
-    const [rows] = await connection.execute(
-      "SELECT * FROM record"
-    );
+    const [rows] = await connection.execute("SELECT * FROM record");
+    console.log(rows);
+    console.log("기록 가져오기 완료");
 
     // Send records as SQS messages
-    for (const row of rows) {
-      await sqs.send(
-        new SendMessageCommand({
-          QueueUrl: process.env.QUEUE_URL,
-          MessageBody: JSON.stringify(row),
-        })
-      );
-    }
+    const messages = rows.map((row) => ({
+      seq: row.seq,
+      competition_seq: row.competition_seq,
+      complete_status: row.complete_status,
+      competition_type_seq: row.competition_type_seq,
+      reg_date: row.reg_date,
+    }));
 
-    // Close MySQL connection
+
+    // 서버 연결 끊기
     await connection.end();
+    console.log("서버 연결 끊기 완료");
 
-    message = "Messages sent!";
+    await sqs.send(
+      new SendMessageCommand({
+        QueueUrl: process.env.QUEUE_URL,
+        MessageBody: JSON.stringify(messages)
+      })
+    );
+    console.log("SQS 메시지 전송 완료");
+
+    
   } catch (error) {
     console.log(error);
     message = error;
@@ -68,23 +66,26 @@ const consumer = async (event) => {
 
     try {
       // Connect to MySQL
-      const connection = await mysql.createConnection(connectionConfig);
+      const connection = await mysql.createConnection({
+        host: process.env.DB_HOST,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_DATABASE,
+        port: process.env.DB_PORT,
+      });
 
       // Parse message body as JSON
-      const data = JSON.parse(record.body);
+      const messages = JSON.parse(record.body);
+      console.log(messages);
 
       // Insert data into MySQL
-      await connection.execute(
-        "INSERT INTO point (seq, competition_seq, participant_seq, complete_status, competition_type_seq, reg_date) VALUES (?, ?, ?, ?, ?, ?)",
-        [
-          data.seq,
-          data.competition_seq,
-          data.participant_seq,
-          data.complete_status,
-          data.competition_type_seq,
-          data.reg_date,
-        ]
-      );
+      for (const message of messages) {
+        const [result] = await connection.execute(
+          "INSERT INTO payment_point (participant_seq, record_seq, point, reg_date) VALUES (?, ?, ?, ?)",
+          [message.participant_seq, message.seq, message.complete_status, message.reg_date]
+        );
+        console.log(result);
+      }
 
       // Close MySQL connection
       await connection.end();

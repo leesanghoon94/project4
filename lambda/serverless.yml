@@ -1,4 +1,4 @@
-service: lambda
+service: lambda-testing
 frameworkVersion: '3'
 
 provider:
@@ -21,12 +21,11 @@ constructs:
     worker:
       handler: index.consumer
 
-        
 functions:
+
   producer:
     handler: index.producer
     events:
-      
       - schedule: rate(1 minute)
     vpc:
       securityGroupIds:
@@ -34,10 +33,9 @@ functions:
       subnetIds:
         - subnet-093bc1cebb91c00f9
         - subnet-001d2da3df3529a3f
-        
     environment:
       QUEUE_URL: ${constructs.jobs.queueUrl}
-      
+
 
 
 plugins:

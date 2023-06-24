@@ -1,80 +1,40 @@
-const mysql = require('mysql');
 const AWS = require('aws-sdk');
-
-// Create SQS service object
-let sqs = new AWS.SQS({apiVersion: '2012-11-05', region: 'ap-northeast-2'});
-
-const dbConnection = mysql.createPool({
-  connectionLimit: 10,
-  host: 'terraform-20230622052736232100000001.cxamxtdxagfz.ap-northeast-2.rds.amazonaws.com',
-  user: 'root',
-  password: '12345678',
-  database: 'RECORD'
-});
+const sqs = new AWS.SQS({ apiVersion: '2012-11-05', region: 'ap-northeast-2' });
 
 exports.handler = async (event, context) => {
-  console.log('Event:', event);
   try {
-    // Read the message from the SQS event
-    let message = event.Records[0].body;
-    let dbData = JSON.parse(message);
-
-    // Check if dbData is an array
-    if (!Array.isArray(dbData)) {
-      console.log('Invalid data format. Expected an array.');
-      return {
-        statusCode: 400,
-        body: 'Invalid data format. Expected an array.'
-      };
-    }
-
-    // Loop through each record and insert it into the database
-    for (let record of dbData) {
-      // Insert the data into the database
-      await insertDataToDB(record);
-    }
-
-    console.log('All records inserted successfully');
-    return {
-      statusCode: 200,
-      body: 'All records inserted successfully'
-    };
+    let messages = await receiveMessagesFromSQS();
+    console.log('Received messages from SQS:', messages);
   } catch (error) {
-    console.error('Error:', error);
-    return {
-      statusCode: 500,
-      body: 'Error occurred while inserting records'
-    };
-  } finally {
-    // Close the database connection
-    dbConnection.end();
+    console.error('Error occurred:', error);
   }
 };
 
-function insertDataToDB(record) {
+function receiveMessagesFromSQS() {
   return new Promise((resolve, reject) => {
-    let query = "INSERT IGNORE INTO payment_point (participant_seq, record_seq, point, reg_date) VALUES (?, ?, ?, NOW())";
-    let values = [record.participant_seq, record.seq, record.complete_status];
+    let params = {
+      QueueUrl: 'https://sqs.ap-northeast-2.amazonaws.com/124121153800/SQS-hwani',
+      MaxNumberOfMessages: 10
+    };
 
-    dbConnection.getConnection((error, connection) => {
-      if (error) {
-        reject(error);
-        return;
+    sqs.receiveMessage(params, function (err, data) {
+      if (err) {
+        console.error('Error in receiveMessagesFromSQS:', err);
+        reject(err);
+      } else {
+        let messages = data.Messages || [];
+        console.log(`Received ${messages.length} messages from SQS`);
+
+        // Log each message
+        messages.forEach(message => {
+          console.log('Message:', message);
+          // If you want to see the content of the message
+          let dbData = JSON.parse(message.Body);
+          console.log('Message Body:', dbData);
+        });
+
+        resolve(messages);
       }
-
-      connection.query(query, values, function (error, results, fields) {
-        connection.release();
-
-        if (error) reject(error);
-
-        if (results.affectedRows === 0) {
-          console.log('Duplicate data found. Ignored.');
-        } else {
-          console.log('Data inserted successfully');
-        }
-
-        resolve(results);
-      });
     });
   });
 }

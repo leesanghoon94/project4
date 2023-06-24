@@ -10,6 +10,16 @@ provider:
     subnetIds:
       - subnet-093bc1cebb91c00f9
       - subnet-001d2da3df3529a3f
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action:
+            - sqs:ReceiveMessage
+            - sqs:DeleteMessage
+            - sqs:GetQueueAttributes
+          Resource: 'arn:aws:sqs:ap-northeast-2:124121153800:SQS-hwani'
+
 
 functions:
   myFunction:

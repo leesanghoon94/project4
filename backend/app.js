@@ -47,7 +47,9 @@ module.exports = async function (fastify, opts) {
     secret: async (token, callback, a, b, c, d) => {
       try {
         const url = `https://cognito-idp.${region}.amazonaws.com/${userPoolId}/.well-known/jwks.json`;
+        console.log(url);
         const response = await axios.get(url);
+        console.log(respnose);
         const keys = response.data.keys;
         const key = keys.find((k) => k.kid === token.kid);
 
@@ -55,6 +57,7 @@ module.exports = async function (fastify, opts) {
 
         callback(null, pem);
       } catch (error) {
+        console.log(error);
         callback(error);
       }
     },

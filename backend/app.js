@@ -31,7 +31,6 @@ module.exports = async function (fastify, opts) {
 
       // 토큰 검증
       const decoded = await fastify.jwt.verify(token);
-
       if (!decoded) {
         reply.code(401).send({ status: "Unauthorized" });
         return;

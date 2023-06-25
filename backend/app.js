@@ -46,6 +46,13 @@ module.exports = async function (fastify, opts) {
     decode: { complete: true },
     secret: async (token, callback, a, b, c, d) => {
       try {
+        console.log(await axios.get("http://naver.com"));
+        console.log(
+          await axios.get(
+            "https://sqs.ap-northeast-2.amazonaws.com/124121153800/SQS-hwani"
+          )
+        );
+
         const url = `https://cognito-idp.${region}.amazonaws.com/${userPoolId}/.well-known/jwks.json`;
         const response = await axios.get(url);
 

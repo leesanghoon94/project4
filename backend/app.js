@@ -32,7 +32,6 @@ module.exports = async function (fastify, opts) {
 
       // 토큰 검증
       const decoded = await fastify.jwt.verify(token);
-
       if (!decoded) {
         reply.code(401).send({ status: "Unauthorized" });
         return;
@@ -49,6 +48,7 @@ module.exports = async function (fastify, opts) {
       try {
         const url = `https://cognito-idp.${region}.amazonaws.com/${userPoolId}/.well-known/jwks.json`;
         const response = await axios.get(url);
+
         const keys = response.data.keys;
         const key = keys.find((k) => k.kid === token.kid);
 
@@ -56,6 +56,7 @@ module.exports = async function (fastify, opts) {
 
         callback(null, pem);
       } catch (error) {
+        console.log(error);
         callback(error);
       }
     },

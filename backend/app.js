@@ -35,7 +35,15 @@ module.exports = async function (fastify, opts) {
         reply.code(401).send({ status: "Unauthorized" });
         return;
       }
-      request.userData = decoded;
+      console.log(decoded);
+      request.userData = {
+        email: decoded.email,
+        name: decoded.name,
+        group:
+          decoded["cognito:groups"] && decoded["cognito:groups"].length > 0
+            ? decoded["cognito:groups"][0]
+            : "anonymous",
+      };
     } catch (error) {
       reply.code(401).send({ status: "Unauthorized", msg: error });
     }

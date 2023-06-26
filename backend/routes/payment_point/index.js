@@ -3,6 +3,11 @@
 module.exports = async function (fastify, opts) {
   fastify.get("/", async (request, reply) => {
     try {
+      if (request.userData.group !== "anonymous") {
+        reply.code(401).send({ message: "Unauthorized Menu" });
+        return;
+      }
+
       const connection = await fastify.mysql.getConnection();
       const result = await connection.query(
         `SELECT
@@ -10,7 +15,7 @@ module.exports = async function (fastify, opts) {
         b.user_id,
         b.user_name,
         a.point,
-        a.reg_dae
+        a.reg_date
         FROM payment_point as a 
         INNER JOIN participant as b 
           ON a.participant_seq = b.seq

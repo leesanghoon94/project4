@@ -22,6 +22,10 @@ module.exports = async function (fastify, opts) {
    */
   fastify.post("/:competitionid/participants", async function (request, reply) {
     try {
+      if (request.userData.group !== "anonymous") {
+        reply.code(401).send({ message: "Unauthorized Menu" });
+        return;
+      }
       const connection = await fastify.mysql.getConnection();
       const { competitionid } = request.params;
 
@@ -45,6 +49,10 @@ module.exports = async function (fastify, opts) {
    */
   fastify.get("/:competitionid/participants", async function (request, reply) {
     try {
+      if (request.userData.group !== "anonymous") {
+        reply.code(401).send({ message: "Unauthorized Menu" });
+        return;
+      }
       const connection = await fastify.mysql.getConnection();
       const { competitionid } = request.params;
 
@@ -67,6 +75,10 @@ module.exports = async function (fastify, opts) {
    */
   fastify.get("/:competitionid/record", async function (request, reply) {
     try {
+      if (request.userData.group !== "administrator") {
+        reply.code(401).send({ message: "Unauthorized Menu" });
+        return;
+      }
       const connection = await fastify.mysql.getConnection();
       const { competitionid } = request.params;
 
@@ -93,6 +105,10 @@ module.exports = async function (fastify, opts) {
    */
   fastify.post("/:competitionid/record", async function (request, reply) {
     try {
+      if (request.userData.group !== "administrator") {
+        reply.code(401).send({ message: "Unauthorized Menu" });
+        return;
+      }
       const connection = await fastify.mysql.getConnection();
       const { competitionid } = request.params;
       const { participant_seq, complete_status, competition_type_seq } =

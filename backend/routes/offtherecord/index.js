@@ -3,6 +3,11 @@
 module.exports = async function (fastify, opts) {
   fastify.get("/", async (request, reply) => {
     try {
+      if (request.userData.group !== "anonymous") {
+        reply.code(401).send({ message: "Unauthorized Menu" });
+        return;
+      }
+
       const connection = await fastify.mysql.getConnection();
       const result = await connection.query(
         `SELECT o.user_id, o.title, IF(o.complete_status, 'true', 'false') as complete_status, c.type_name as competition_type, o.reg_date 
@@ -19,6 +24,11 @@ module.exports = async function (fastify, opts) {
 
   fastify.post("/", async (request, reply) => {
     try {
+      if (request.userData.group !== "anonymous") {
+        reply.code(401).send({ message: "Unauthorized Menu" });
+        return;
+      }
+
       const connection = await fastify.mysql.getConnection();
 
       const data = request.body;

@@ -6,8 +6,8 @@ const jwt = require("fastify-jwt");
 const axios = require("axios");
 const jwkToPem = require("jwk-to-pem");
 const dotenv = require("dotenv");
-
 const region = "ap-northeast-2";
+
 const userPoolId = process.env.AWS_COGNITO_USERPOOL_ID;
 const dbConnectionString = process.env.MYSQL_CONNECTION_STRING;
 

@@ -44,6 +44,7 @@ jobs:
         uses: aws-actions/amazon-ecr-login@v1
 
       - name: Set Environment
+        working-directory: ./backend
         run: |
           echo "AWS_COGNITO_USERPOOL_ID" >> .env
           echo "MYSQL_CONNECTION_STRING" >> .env

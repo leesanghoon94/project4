@@ -46,8 +46,8 @@ jobs:
       - name: Set Environment
         working-directory: ./backend
         run: |
-          echo "AWS_COGNITO_USERPOOL_ID" >> .env
-          echo "MYSQL_CONNECTION_STRING" >> .env
+          echo $AWS_COGNITO_USERPOOL_ID
+          echo $MYSQL_CONNECTION_STRING
         env:
           AWS_COGNITO_USERPOOL_ID: ${{ secrets.AWS_COGNITO_USERPOOL_ID }}
           MYSQL_CONNECTION_STRING: ${{ secrets.MYSQL_CONNECTION_STRING }}

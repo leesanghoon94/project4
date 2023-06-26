@@ -20,6 +20,7 @@ module.exports = async function (fastify, opts) {
       done();
       return;
     }
+
     fastify.mysql.close((err) => {
       if (err) {
         console.error("db closed error: ", err);

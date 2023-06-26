@@ -14,6 +14,19 @@ module.exports.options = {};
 
 module.exports = async function (fastify, opts) {
   // Place here your custom code!
+  fastify.addHook("onClose", (instance, done) => {
+    if (!fastify.mysql || !fastify.mysql.close) {
+      done();
+      return;
+    }
+    fastify.mysql.close((err) => {
+      if (err) {
+        console.error("db closed error: ", err);
+      }
+      done(err);
+    });
+  });
+
   fastify.addHook("preHandler", async (request, reply) => {
     try {
       // Health Check

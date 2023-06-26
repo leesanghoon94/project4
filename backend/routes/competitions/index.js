@@ -29,6 +29,18 @@ module.exports = async function (fastify, opts) {
       const connection = await fastify.mysql.getConnection();
       const { competitionid } = request.params;
 
+      const [existingUser] = await connection.query(
+        `
+        SELECT * FROM participant
+        WHERE competition_seq = ? AND user_id = ?;`,
+        [competitionid, request.userData.email]
+      );
+
+      if (existingUser.length > 0) {
+        reply.code(400).send({ status: "이미 신청한 대회가 있습니다." });
+        return;
+      }
+
       const result = await connection.query(
         `
       INSERT INTO participant (competition_seq, user_id, user_name, reg_date)
@@ -59,7 +71,8 @@ module.exports = async function (fastify, opts) {
       const [rows, fields] = await connection.query(
         `
       SELECT * FROM participant as A 
-        LEFT JOIN competition
+        LEFT JOIN competition as B
+          ON A.competition_seq = B.seq
       WHERE competition_seq = ?;
     `,
         [competitionid]

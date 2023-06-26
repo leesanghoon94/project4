@@ -5,9 +5,13 @@ const AutoLoad = require("@fastify/autoload");
 const jwt = require("fastify-jwt");
 const axios = require("axios");
 const jwkToPem = require("jwk-to-pem");
+const dotenv = require("dotenv");
 
 const region = "ap-northeast-2";
-const userPoolId = "ap-northeast-2_nJ12kwmzP";
+const userPoolId = process.env.AWS_COGNITO_USERPOOL_ID;
+const dbConnectionString = process.env.MYSQL_CONNECTION_STRING;
+
+dotenv.config();
 
 // Pass --options via CLI arguments in command to enable these options.
 module.exports.options = {};
@@ -85,8 +89,7 @@ module.exports = async function (fastify, opts) {
 
   fastify.register(require("@fastify/mysql"), {
     promise: true,
-    connectionString:
-      "mysql://root:12345678@terraform-20230622052736232100000001.cxamxtdxagfz.ap-northeast-2.rds.amazonaws.com/RECORD",
+    connectionString: `${dbConnectionString}/RECORD`,
   });
 
   // Do not touch the following lines

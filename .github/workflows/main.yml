@@ -43,6 +43,14 @@ jobs:
         id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
+      - name: Set Environment
+        run: |
+          echo "AWS_COGNITO_USERPOOL_ID" >> .env
+          echo "MYSQL_CONNECTION_STRING" >> .env
+        env:
+          AWS_COGNITO_USERPOOL_ID: ${{ secrets.AWS_COGNITO_USERPOOL_ID }}
+          MYSQL_CONNECTION_STRING: ${{ secrets.MYSQL_CONNECTION_STRING }}
+
       - name: Build, tag, and push image to Amazon ECR
         id: build-image
         working-directory: ./backend

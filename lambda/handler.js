@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mysql = require('mysql');
 const AWS = require('aws-sdk');
 
@@ -10,11 +11,11 @@ exports.handler = async (event, context) => {
     console.log('Retrieved data from DB:', dbData);
 
     const message = {
-      QueueUrl: 'https://sqs.ap-northeast-2.amazonaws.com/124121153800/SQS-hwani',
+      QueueUrl: process.env.SQS_QUEUE_URL,
       MessageBody: JSON.stringify(dbData),
     };
     console.log(message)
-    
+
     await sendMessageToSQS(message);
     console.log("Successfully sent message to SQS.");
   } catch (error) {
@@ -25,10 +26,10 @@ exports.handler = async (event, context) => {
 function getDataFromDB() {
   return new Promise((resolve, reject) => {
     const dbConnection = mysql.createConnection({
-      host: 'terraform-20230622052736232100000001.cxamxtdxagfz.ap-northeast-2.rds.amazonaws.com',
-      user: 'root',
-      password: '12345678',
-      database: 'RECORD',
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_NAME,
     });
 
     dbConnection.query('SELECT * FROM record', function (error, results, fields) {

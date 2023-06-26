@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "aws-sdk": "^2.1403.0",
+    "dotenv": "^16.3.1",
     "mysql": "^2.18.1"
   }
 }

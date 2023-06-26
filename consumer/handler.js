@@ -1,12 +1,15 @@
+require('dotenv').config();
+
 const mysql = require('mysql');
 const AWS = require('aws-sdk');
 
 const dbConnection = mysql.createConnection({
-  host: 'terraform-20230622052736232100000001.cxamxtdxagfz.ap-northeast-2.rds.amazonaws.com',
-  user: 'root',
-  password: '12345678',
-  database: 'RECORD'
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME
 });
+
 
 exports.handler = async (event, context) => {
   try {
@@ -35,6 +38,11 @@ exports.handler = async (event, context) => {
       statusCode: 500,
       body: 'Error occurred while processing records'
     };
+  } finally {
+    dbConnection.end(function(err) {
+      if (err) console.log('Error closing connection:', err);
+      else console.log('Database connection closed');
+    });
   }
 }
 

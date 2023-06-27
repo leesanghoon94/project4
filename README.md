@@ -25,12 +25,8 @@ GIF Images
 
 | JavaScript | mysql | fastify | aws | docker |
 | :--------: | :---: | :-----: | :-: | :----: |
-|  ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/e1a75999-a0d3-464d-b33a-13f8ade412d4)
-  |   ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/31fa8c99-0ba4-4276-ac0a-d31993b05c2c)
-  |  ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/f0480666-115f-443f-8ec1-a2c863a8a543)
-  |  ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/256ff8df-7fd1-4353-af96-4728f46b3b7a)
-|  ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/d0583963-0543-472a-957a-0c26711b6077)
-  |
+| ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/e1a75999-a0d3-464d-b33a-13f8ade412d4) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/31fa8c99-0ba4-4276-ac0a-d31993b05c2c) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/f0480666-115f-443f-8ec1-a2c863a8a543) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/256ff8df-7fd1-4353-af96-4728f46b3b7a) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/d0583963-0543-472a-957a-0c26711b6077) |
+
 |  terraform  | githubaction | serverless | vite | react | grafana |
 | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/0fb24f86-e818-43f2-9729-7288947ea486) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/9ce1cacc-f2e1-4a37-aac4-b11369571deb) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/0624a156-0e7b-4697-b58a-b3ba654c6767) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/ec96c6d8-162d-4365-ab8a-62445d2f2a34) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/ac6d27d4-effa-4836-8d49-1857eda6679d) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/e5fafc52-dd1f-4a9a-8576-11ef192c5b96) |
 

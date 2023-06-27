@@ -32,8 +32,8 @@ GIF Images
 
 | terraform |githubaction| serverless | vite |
 | :-------: | :-----------: | :---: | :--: |
-| ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/0fb24f86-e818-43f2-9729-7288947ea486) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/9ce1cacc-f2e1-4a37-aac4-b11369571deb) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/0624a156-0e7b-4697-b58a-b3ba654c6767)
- | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/cf6cc256-8d20-42fd-8581-e892969b8329)|
+| ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/0fb24f86-e818-43f2-9729-7288947ea486) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/9ce1cacc-f2e1-4a37-aac4-b11369571deb) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/0624a156-0e7b-4697-b58a-b3ba654c6767) |![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/ec96c6d8-162d-4365-ab8a-62445d2f2a34)
+
 
 
 

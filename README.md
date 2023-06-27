@@ -29,9 +29,12 @@ GIF Images
 
 
 
-| JavaScript | TypeScript |  React   |  Node   |
+| JavaScript | TypeScript |  React   |  aws   |
 | :--------: | :--------: | :------: | :-----: |
-|   ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/bac3a093-3a37-47f2-ba35-2049a43e7057) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/14c2c807-9184-49d9-ac3e-3fb8613e7eb6) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/1f6e62df-6657-4b99-855a-bdca3c76475f)
+|   ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/bac3a093-3a37-47f2-ba35-2049a43e7057) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/14c2c807-9184-49d9-ac3e-3fb8613e7eb6) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/f3fcf008-f6de-4ef6-bce5-452b63770dce) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/05e248db-53dd-4d6b-b180-da7f315bfa3f) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/47156fd1-edff-43bc-914e-192b7d019a71)
+
+
+
 
    
 

@@ -1,5 +1,7 @@
 <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black">
 <img src="https://img.shields.io/badge/aws-232F3E?style=for-the-badge&logo=aws&logoColor=white">
+<img src="https://img.shields.io/badge/aws-232F3E?style=for-the-badge&logo=aws&logoColor=white">
+<img ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/f63a4a3e-3b74-45be-b30b-ffae7fbc7b07) >
 
 
 
@@ -28,9 +30,8 @@ GIF Images
 
 | JavaScript | TypeScript |  React   |  Node   |
 | :--------: | :--------: | :------: | :-----: |
-|   ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/bac3a093-3a37-47f2-ba35-2049a43e7057) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/14c2c807-9184-49d9-ac3e-3fb8613e7eb6) |
-   |   
-    | ![react] | ![#339933] |
+|   ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/bac3a093-3a37-47f2-ba35-2049a43e7057) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/14c2c807-9184-49d9-ac3e-3fb8613e7eb6) | 
+   
 
 <br>
 

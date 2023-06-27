@@ -21,13 +21,9 @@ GIF Images
 <br>
 
 ## 기술 스택
-<img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> 
-<img src="https://img.shields.io/badge/aws-232F3E?style=for-the-badge&logo=aws&logoColor=white">
-<img src="https://img.shields.io/badge/fastify-000000?style=for-the-badge&logo=fastify&logoColor=black">
-![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/c0691c7f-8823-41d8-9272-61f7a95e5c3e)
 
 
-| JavaScript | TypeScript | React | Node |
+| JavaScript | TypeScript | fastify | vite |
 | :--------: | :--------: | :---: | :--: |
 | <img src="https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/bac3a093-3a37-47f2-ba35-2049a43e7057" width="25%"> | <img src="https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/14c2c807-9184-49d9-ac3e-3fb8613e7eb6" width="25%"> | <img src="https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/1f6e62df-6657-4b99-855a-bdca3c76475f" width="25%">
 

@@ -45,6 +45,8 @@ GIF Images
 
 <br>
 
+## 구현 기능
+
 ### AWS Cognito 기반의 JWT Token 인증 서비스
 
 - Cognito를 사용하여 사용자 인증, 관리에 대한 처리를 위임하여 빠른 개발 가능

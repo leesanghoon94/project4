@@ -27,6 +27,12 @@ GIF Images
 ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/c0691c7f-8823-41d8-9272-61f7a95e5c3e)
 
 
+| JavaScript | TypeScript | React | Node |
+| :--------: | :--------: | :---: | :--: |
+| <img src="https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/bac3a093-3a37-47f2-ba35-2049a43e7057" width="25%"> | <img src="https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/14c2c807-9184-49d9-ac3e-3fb8613e7eb6" width="25%"> | <img src="https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/1f6e62df-6657-4b99-855a-bdca3c76475f" width="25%">
+
+
+
 | JavaScript | TypeScript |  React   |  Node   |
 | :--------: | :--------: | :------: | :-----: |
 |   ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/bac3a093-3a37-47f2-ba35-2049a43e7057) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/14c2c807-9184-49d9-ac3e-3fb8613e7eb6) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/1f6e62df-6657-4b99-855a-bdca3c76475f)

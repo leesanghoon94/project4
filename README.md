@@ -1,6 +1,4 @@
 <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/aws-232F3E?style=for-the-badge&logo=aws&logoColor=white">
-<img src="https://img.shields.io/badge/aws-232F3E?style=for-the-badge&logo=aws&logoColor=white">
-<img ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/f63a4a3e-3b74-45be-b30b-ffae7fbc7b07) >
 
 
 

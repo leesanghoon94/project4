@@ -21,8 +21,9 @@ GIF Images
 <br>
 
 ## 기술 스택
----
 <img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"> <img src="https://img.shields.io/badge/aws-232F3E?style=for-the-badge&logo=aws&logoColor=white">
+
+<img src="https://img.shields.io/badge/fastify?style=for-the-badge&logo=fastify&logoColor=white">
 
 | JavaScript | TypeScript |  React   |  Node   |
 | :--------: | :--------: | :------: | :-----: |

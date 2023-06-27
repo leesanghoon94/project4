@@ -30,11 +30,10 @@ GIF Images
 
 
 
-| terraform | githubaction |  React   |  aws   |
-| :--------: | :--------: | :------: | :-----: |
-|   ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/0fb24f86-e818-43f2-9729-7288947ea486)
- | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/9ce1cacc-f2e1-4a37-aac4-b11369571deb)
- | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/f3fcf008-f6de-4ef6-bce5-452b63770dce) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/05e248db-53dd-4d6b-b180-da7f315bfa3f) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/47156fd1-edff-43bc-914e-192b7d019a71)
+| terraform | githubaction | React | aws |
+| :-------: | :-----------: | :---: | :--: |
+| ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/0fb24f86-e818-43f2-9729-7288947ea486) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/9ce1cacc-f2e1-4a37-aac4-b11369571deb) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/f3fcf008-f6de-4ef6-bce5-452b63770dce) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/05e248db-53dd-4d6b-b180-da7f315bfa3f) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/47156fd1-edff-43bc-914e-192b7d019a71) |
+
 
 
 

@@ -4,7 +4,14 @@
 
 ![스크린샷 2023-06-16 095736](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/126463087/9ac0be0e-6643-413f-988d-10596a0a9fb9)
 
-목차
+# 목차
+- 기획 의도 및 소개
+- 아키텍처
+- 아키텍처 구현 담당
+- 새로운 시도
+- 서비스 확인
+- Q&A
+
 
 ## 프로젝트 소개
 

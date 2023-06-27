@@ -1,10 +1,8 @@
-
 # 1팀 : The first
 
 # 마라톤대회 기록 관리 시스템 🏃
 
 ![스크린샷 2023-06-16 095736](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/126463087/9ac0be0e-6643-413f-988d-10596a0a9fb9)
-
 
 목차
 
@@ -22,26 +20,13 @@ GIF Images
 
 ## 기술 스택
 
+|                                                  JavaScript                                                  |                                               mysql                                                |                                                fastify                                                 |                                                  aws                                                  |                                                docker                                                |
+| :----------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: |
+| ![image](https://img.shields.io/badge/Javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) | ![image](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white) | ![image](https://img.shields.io/badge/Fastify-202020?style=for-the-badge&logo=fastify&logoColor=white) | ![image](https://img.shields.io/badge/AWS-232F3E?style=for-the-badge&logo=amazon-aws&logoColor=white) | ![image](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) |
 
-| JavaScript | mysql | fastify | aws | docker |
-| :--------: | :---: | :-----: | :-: | :----: |
-| ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/e1a75999-a0d3-464d-b33a-13f8ade412d4) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/31fa8c99-0ba4-4276-ac0a-d31993b05c2c) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/f0480666-115f-443f-8ec1-a2c863a8a543) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/256ff8df-7fd1-4353-af96-4728f46b3b7a) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/d0583963-0543-472a-957a-0c26711b6077) |
-
-|  terraform  | githubaction | serverless | vite | react | grafana |
-| :---------: | :----------: | :--------: | :--: | :---: | :-----: |
-| ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/0fb24f86-e818-43f2-9729-7288947ea486) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/9ce1cacc-f2e1-4a37-aac4-b11369571deb) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/0624a156-0e7b-4697-b58a-b3ba654c6767) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/ec96c6d8-162d-4365-ab8a-62445d2f2a34) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/ac6d27d4-effa-4836-8d49-1857eda6679d) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/e5fafc52-dd1f-4a9a-8576-11ef192c5b96) |
-
-
-
-
-
-
-
-
-
-
-
-   
+|                                                 terraform                                                  |                                                     githubaction                                                     |                                                  serverless                                                  |                                               vite                                               |                                               react                                                |                                                           grafana                                                           |
+| :--------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------: |
+| ![image](https://img.shields.io/badge/Terraform-623CE4?style=for-the-badge&logo=terraform&logoColor=white) | ![image](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white) | ![image](https://img.shields.io/badge/Serverless-FD5750?style=for-the-badge&logo=serverless&logoColor=white) | ![image](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white) | ![image](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black) | ![image](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white) |
 
 <br>
 

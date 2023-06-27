@@ -23,7 +23,8 @@ GIF Images
 
 ## 아키텍처
 
-![스크린샷 2023-06-16 095736](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/126463087/9ac0be0e-6643-413f-988d-10596a0a9fb9)
+![스크린샷 2023-06-27 101240](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/126463087/7a432e2d-4663-4a79-92d0-06e1a68efc7a)
+
 
 ## 기술 스택
 

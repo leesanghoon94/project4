@@ -23,18 +23,13 @@ GIF Images
 ## 기술 스택
 
 
-| JavaScript | mysql | fastify | aws |docker|
-| :--------: | :--------: | :---: | :--: | :---: 
-| <img src="https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/bac3a093-3a37-47f2-ba35-2049a43e7057" width="25%"> | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/b9b3b95a-df27-4512-8957-07b0113fdccf)
-| <img src="https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/1f6e62df-6657-4b99-855a-bdca3c76475f" width="25%"> | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/721d54aa-561a-4317-a820-d9733d655fb1) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/2630f13a-b76f-427a-aba6-fcc65067eb62)
+| JavaScript | mysql | fastify | aws | docker |
+| :--------: | :---: | :-----: | :-: | :----: |
+| <img src="https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/bac3a093-3a37-47f2-ba35-2049a43e7057" width="25%"> | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/b9b3b95a-df27-4512-8957-07b0113fdccf) |
+| <img src="https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/1f6e62df-6657-4b99-855a-bdca3c76475f" width="25%"> | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/721d54aa-561a-4317-a820-d9733d655fb1) |
+|  terraform  | githubaction | serverless | vite | react | grafana |
+| ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/0fb24f86-e818-43f2-9729-7288947ea486) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/9ce1cacc-f2e1-4a37-aac4-b11369571deb) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/0624a156-0e7b-4697-b58a-b3ba654c6767) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/ec96c6d8-162d-4365-ab8a-62445d2f2a34) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/ac6d27d4-effa-4836-8d49-1857eda6679d) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/e5fafc52-dd1f-4a9a-8576-11ef192c5b96) |
 
-
-
-
-
-| terraform |githubaction| serverless | vite |react|grafana|
-| :-------: | :-----------: | :---: | :--: |:--:| :--
-| ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/0fb24f86-e818-43f2-9729-7288947ea486) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/9ce1cacc-f2e1-4a37-aac4-b11369571deb) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/0624a156-0e7b-4697-b58a-b3ba654c6767) |![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/ec96c6d8-162d-4365-ab8a-62445d2f2a34) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/ac6d27d4-effa-4836-8d49-1857eda6679d) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/e5fafc52-dd1f-4a9a-8576-11ef192c5b96)
 
 
 

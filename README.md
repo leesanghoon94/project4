@@ -65,6 +65,10 @@ GIF Images
 - AWS Lambda와 SQS를 이용해 각 서비스간의 의존성을 줄이고 독립적으로 사용되도록 느슨한 결합 형태의 아키텍처를 구축
 - EventBridge를 사용하여 각 서비스간의 연결된 복잡한 이벤트를 효율적으로 처리
 
+### Cloudwatch와 Grapana를 이용한 시각화 모니터링 시스템
+
+- AWS Cloudwatch와 Grapana를 이용하여 백엔드 서버의 트래픽 모니터링 및 경고 알람 설정
+
 <br>
 
 ## 배운 점 & 아쉬운 점

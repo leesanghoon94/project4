@@ -4,8 +4,8 @@
 
 <p align="center">
   <br>
-  <![스크린샷 2023-06-16 095736](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/126463087/17d9ca56-97bf-469a-8eb6-20c912c8c3c3)
-">
+  [스크린샷 2023-06-16 095736](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/126463087/17d9ca56-97bf-469a-8eb6-20c912c8c3c3)
+
   <br>
 </p>
 

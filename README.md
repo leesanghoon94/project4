@@ -25,7 +25,8 @@ GIF Images
 
 | JavaScript | TypeScript | fastify | aws |docker|
 | :--------: | :--------: | :---: | :--: | :---: 
-| <img src="https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/bac3a093-3a37-47f2-ba35-2049a43e7057" width="25%"> | <img src="https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/14c2c807-9184-49d9-ac3e-3fb8613e7eb6" width="25%"> | <img src="https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/1f6e62df-6657-4b99-855a-bdca3c76475f" width="25%"> | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/721d54aa-561a-4317-a820-d9733d655fb1) 
+| <img src="https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/bac3a093-3a37-47f2-ba35-2049a43e7057" width="25%"> | <img src="https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/14c2c807-9184-49d9-ac3e-3fb8613e7eb6" width="25%"> | <img src="https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/1f6e62df-6657-4b99-855a-bdca3c76475f" width="25%"> | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/721d54aa-561a-4317-a820-d9733d655fb1) | ![image](https://github.com/cs-devops-bootcamp/devops-04-Final-Team1/assets/127801771/2630f13a-b76f-427a-aba6-fcc65067eb62)
+
 
 
 

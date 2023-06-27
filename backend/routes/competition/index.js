@@ -1,19 +1,3 @@
-<<<<<<< HEAD
-"use strict";
-
-module.exports = async function (fastify, opts) {
-  fastify.get("/", async (request, reply) => {
-    try {
-      const connection = await fastify.mysql.getConnection();
-      const result = await connection.query(
-        "SELECT * FROM competition_type",
-        []
-      );
-      reply.code(200).send(result[0]);
-    } catch (error) {
-      reply.code(503).send(error);
-    }
-=======
 'use strict';
 const mysql = require('mysql');
 
@@ -33,8 +17,8 @@ connection.connect((err) => {
 });
 
 module.exports = async function(fastify, opts) {
-  fastify.get('/competition_type', (request, reply) => {
-    connection.query('SELECT * FROM competition_type', (err, results) => {
+  fastify.get('/competition', (request, reply) => {
+    connection.query('SELECT * FROM competition', (err, results) => {
       if (err) {
         console.error('Error executing MySQL query:', err);
         reply.status(500).send('Error executing query');
@@ -42,6 +26,5 @@ module.exports = async function(fastify, opts) {
       }
       reply.send(results);
     });
->>>>>>> eeb0d36af23f1788ec7ed1ebae670f5fec5490af
   });
 };

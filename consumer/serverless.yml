@@ -1,8 +1,8 @@
-service: my-service
+service: consumer
 
 provider:
   name: aws
-  runtime: nodejs18.x
+  runtime: nodejs14.x
   region: ap-northeast-2
   vpc:
     securityGroupIds:
@@ -15,9 +15,15 @@ provider:
       statements:
         - Effect: Allow
           Action:
-            - sqs:SendMessage
+            - sqs:ReceiveMessage
+            - sqs:DeleteMessage
+            - sqs:GetQueueAttributes
           Resource: 'arn:aws:sqs:ap-northeast-2:124121153800:SQS-hwani'
+
 
 functions:
   myFunction:
     handler: handler.handler
+    events:
+      - sqs:
+          arn: arn:aws:sqs:ap-northeast-2:124121153800:SQS-hwani

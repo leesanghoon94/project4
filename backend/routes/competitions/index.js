@@ -52,7 +52,9 @@ module.exports = async function (fastify, opts) {
       console.log(result);
 
       reply.code(201).send({ status: "Created" });
-    } catch (e) {}
+    } catch (e) {
+      reply.code(500).send(e);
+    }
   });
 
   /**
@@ -75,7 +77,9 @@ module.exports = async function (fastify, opts) {
       );
 
       reply.code(200).send(rows);
-    } catch (e) {}
+    } catch (e) {
+      reply.code(500).send(e);
+    }
   });
 
   /**
@@ -105,7 +109,9 @@ module.exports = async function (fastify, opts) {
       );
 
       reply.code(200).send(rows);
-    } catch (e) {}
+    } catch (e) {
+      reply.code(500).send(e);
+    }
   });
 
   /**
@@ -134,6 +140,8 @@ module.exports = async function (fastify, opts) {
       console.log(result);
 
       reply.code(201).send({ status: "Created" });
-    } catch (e) {}
+    } catch (e) {
+      reply.code(500).send(e);
+    }
   });
 };

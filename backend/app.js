@@ -51,6 +51,7 @@ module.exports = async function (fastify, opts) {
         reply.code(401).send({ status: "Unauthorized" });
         return;
       }
+
       console.log(decoded);
       request.userData = {
         email: decoded.email,

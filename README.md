@@ -23,7 +23,7 @@
 
 ![image](https://img.shields.io/badge/AWS_Cognito-6600FF?style=for-the-badge&logo=amazon-aws&logoColor=white) ![image](https://img.shields.io/badge/AWS_S3-3300FF?style=for-the-badge&logo=amazon-aws&logoColor=white) ![image](https://img.shields.io/badge/AWS_CloudFront-0000FF?style=for-the-badge&logo=amazon-aws&logoColor=white) ![image](https://img.shields.io/badge/AWS_EventBridge-9900FF?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
-### INFRA
+### Infra
 
 ![image](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) ![image](https://img.shields.io/badge/Terraform-623CE4?style=for-the-badge&logo=terraform&logoColor=white) ![image](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white) ![image](https://img.shields.io/badge/Serverless-FD5750?style=for-the-badge&logo=serverless&logoColor=white) ![image](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white)
 

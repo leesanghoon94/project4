@@ -1,6 +1,4 @@
-## 1팀 : The first
-
-## 마라톤대회 기록 관리 시스템 🏃
+# 마라톤대회 기록 관리 시스템 🏃
 
 ## 목차
 - 프로젝트 소개
@@ -20,17 +18,23 @@
 
 ## 기술 스택
 
+### AWS
+
 ![image](https://img.shields.io/badge/AWS_Lambda-FF9900?style=for-the-badge&logo=amazon-aws&logoColor=white) ![image](https://img.shields.io/badge/AWS_SQS-FF6600?style=for-the-badge&logo=amazon-aws&logoColor=white) ![image](https://img.shields.io/badge/AWS_ECR-FF3300?style=for-the-badge&logo=amazon-aws&logoColor=white) ![image](https://img.shields.io/badge/AWS_ECS-FF0000?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
 ![image](https://img.shields.io/badge/AWS_Cognito-6600FF?style=for-the-badge&logo=amazon-aws&logoColor=white) ![image](https://img.shields.io/badge/AWS_S3-3300FF?style=for-the-badge&logo=amazon-aws&logoColor=white) ![image](https://img.shields.io/badge/AWS_CloudFront-0000FF?style=for-the-badge&logo=amazon-aws&logoColor=white) ![image](https://img.shields.io/badge/AWS_EventBridge-9900FF?style=for-the-badge&logo=amazon-aws&logoColor=white)
 
-![image](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) ![image](https://img.shields.io/badge/Terraform-623CE4?style=for-the-badge&logo=terraform&logoColor=white) ![image](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white) ![image](https://img.shields.io/badge/Serverless-FD5750?style=for-the-badge&logo=serverless&logoColor=white)
+### INFRA
+
+![image](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white) ![image](https://img.shields.io/badge/Terraform-623CE4?style=for-the-badge&logo=terraform&logoColor=white) ![image](https://img.shields.io/badge/GitHub_Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white) ![image](https://img.shields.io/badge/Serverless-FD5750?style=for-the-badge&logo=serverless&logoColor=white) ![image](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white)
+
+### Frontend
 
 ![image](https://img.shields.io/badge/Javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black) ![image](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white) ![image](https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=black)
 
-![image](https://img.shields.io/badge/Fastify-202020?style=for-the-badge&logo=fastify&logoColor=white) ![image](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
+### Backend
 
-![image](https://img.shields.io/badge/Grafana-F46800?style=for-the-badge&logo=grafana&logoColor=white)
+![image](https://img.shields.io/badge/Fastify-202020?style=for-the-badge&logo=fastify&logoColor=white) ![image](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 
 <br>
 

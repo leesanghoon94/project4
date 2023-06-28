@@ -35,6 +35,7 @@ module.exports = async function (fastify, opts) {
       if (request.url === "/") {
         return;
       }
+
       // 1. cogniton 검증 로직 추가
       // 2. 유저아이디, 유저네임 할당
       if (!request.headers.authorization) {

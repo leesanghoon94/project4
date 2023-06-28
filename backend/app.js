@@ -75,7 +75,6 @@ module.exports = async function (fastify, opts) {
 
         const keys = response.data.keys;
         const key = keys.find((k) => k.kid === token.kid);
-
         const pem = jwkToPem(key);
 
         callback(null, pem);
